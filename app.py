@@ -6,8 +6,8 @@ import os
 import datetime as dt
 from bottle import Bottle, template, request, static_file
 from pandas import DataFrame
-# import pandas_datareader.data as web
 import jsm
+import matplotlib.pyplot as plt
 
 app = Bottle()
 
@@ -39,7 +39,13 @@ def jstock(code):
     cdf["Adj Close"] = Adj
     cdf["Volume"] = Vol
 
-    cdf.to_csv('stock.txt')
+    cdf.to_csv('data/{}.txt'.format(code))
+
+    df = DataFrame(index=Date)
+    df['Adj Close'] = Adj
+
+    df['Adj Close'].plot()
+    plt.savefig('image/{}.png'.format(code))
 
     return
 
@@ -51,6 +57,16 @@ def index():
 def do_index():
     code = request.forms.get('code')
     jstock(code)
-    return static_file('stock.txt', root='.')
+    imagepath = 'image/{}.png'.format(code)
+    txtpath = 'data/{}.txt'.format(code)
+    return template('result', imagepath=imagepath, txtpath=txtpath)
+
+@app.get('/code/image/<image>')
+def returnImage(image):
+    return static_file(image, root='./image/')
+
+@app.get('/code/data/<txt>')
+def returnText(txt):
+    return static_file(txt, root='./data/')
 
 app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))

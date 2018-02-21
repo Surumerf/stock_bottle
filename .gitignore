@@ -1,4 +1,5 @@
-.vscode/
-venv/
-stock.txt
-*.log
+/.vscode/
+/venv/
+/data/
+/image/
+/*.log
