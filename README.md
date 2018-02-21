@@ -7,7 +7,7 @@ Get stock price data with bottle server.
 Python 3.x, and see [requirements.txt](https://github.com/Surumerf/stock_bottle/blob/master/requirements.txt).  
 Install these by the following command:
 
-```
+```sh
 $ pip install -r requirements.txt
 ```
 
@@ -15,7 +15,7 @@ $ pip install -r requirements.txt
 
 ### Local
 
-```
+```sh
 $ python3 app.py
 
 # And open http://localhost:5000
@@ -23,7 +23,7 @@ $ python3 app.py
 
 ### Heroku
 
-```
+```sh
 $ heroku create
 $ git push heroku master
 
