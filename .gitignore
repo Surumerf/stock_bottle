@@ -1,5 +1,5 @@
 /.vscode/
 /venv/
-/data/
-/image/
+/data/*.txt
+/image/*.png
 /*.log
