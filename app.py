@@ -58,7 +58,7 @@ def index():
     return template('index')
 
 @app.post('/code/')
-def do_index():    
+def do_index():
     code = request.forms.get('code')
     jstock(code)
     imagepath = 'image/{}.png'.format(code)
