@@ -2,12 +2,14 @@
 # -*- coding:utf-8 -*-
 # pylint: skip-file
 
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 import os
 import datetime as dt
 from bottle import Bottle, template, request, static_file
 from pandas import DataFrame
 import jsm
-import matplotlib.pyplot as plt
 
 app = Bottle()
 
