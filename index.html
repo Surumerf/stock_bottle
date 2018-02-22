@@ -4,29 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>stock</title>
-    <style>
-        html, body {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        html {
-            display: table;
-        }
-        body {
-            display: table-cell;
-            text-align: center;
-            vertical-align: middle;
-        }
-    </style>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/floating-labels.css" rel="stylesheet">    
 </head>
+
 <body>
-    <form action="/code/" method="post">
-        <label>一ヶ月分の株価データを取得します．<br>
-        <input type="text" name="code" placeholder="証券コード"></label>
-        <input type="submit" value="submit">
+    <form action="/code/" method="post"　class="form-signin">
+        <div class="text-center mb-4">
+          <img class="mb-4" src="stock.svg" alt="" width="" height="">
+          <h1 class="h3 mb-3 font-weight-normal">株価取得</h1>
+          <p>１ヶ月分の株価を取得します．証券コードを入力してください．</p>
+        </div>
+  
+        <div class="form-label-group">
+          <input type="text" name="code" id="code" class="form-control" placeholder="証券コード" required autofocus>
+          <label for="code">証券コード</label>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">取得</button>
     </form>
 </body>
 </html>
