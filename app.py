@@ -63,7 +63,7 @@ def do_index():
     jstock(code)
     imagepath = 'image/{}.png'.format(code)
     txtpath = 'data/{}.txt'.format(code)
-    return template('result', imagepath=imagepath, txtpath=txtpath)
+    return template('result', imagepath=imagepath, txtpath=txtpath, code=code)
 
 @app.get('/code/image/<image>')
 def returnImage(image):
@@ -77,8 +77,20 @@ def returnText(txt):
 def returnCss(css):
     return static_file(css, root='./css/')
 
+@app.get('/code/css/<css>')
+def returnCss(css):
+    return static_file(css, root='./css/')
+
+@app.get('/code/js/<js>')
+def returnJs(js):
+    return static_file(js, root='./js/')
+
 @app.get('/logo.svg')
 def returnSvg():
     return static_file('logo.svg', root='.')
+
+@app.get('/code/logo2.svg')
+def returnSvg():
+    return static_file('logo2.svg', root='.')
 
 app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
