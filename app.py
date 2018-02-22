@@ -48,7 +48,6 @@ def jstock(code):
 
     plt.figure()
     df['Adj Close'].plot()
-    plt.title(code)
     plt.savefig('image/{}.png'.format(code))
 
     return
@@ -61,9 +60,22 @@ def index():
 def do_index():
     code = request.forms.get('code')
     jstock(code)
+    search = jsm.Quotes().search(code)
+    Name = search[0].name
+    financialData = jsm.Quotes().get_finance(code)
+    finance = [
+        financialData.market_cap,
+        financialData.shares_issued,
+        financialData.dividend_yield,
+        financialData.dividend_one,
+        financialData.per,
+        financialData.pbr,
+        financialData.price_min,
+        financialData.round_lot
+    ]
     imagepath = 'image/{}.png'.format(code)
     txtpath = 'data/{}.txt'.format(code)
-    return template('result', imagepath=imagepath, txtpath=txtpath, code=code)
+    return template('result', imagepath=imagepath, txtpath=txtpath, code=code, Name=Name, finance=finance)
 
 @app.get('/code/image/<image>')
 def returnImage(image):
