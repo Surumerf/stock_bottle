@@ -77,8 +77,8 @@ def returnText(txt):
 def returnCss(css):
     return static_file(css, root='./css/')
 
-@app.get('/stock.svg')
+@app.get('/logo.svg')
 def returnSvg():
-    return static_file('stock.svg', root='.')
+    return static_file('logo.svg', root='.')
 
 app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
