@@ -47,7 +47,8 @@ def jstock(code):
     df['Adj Close'] = Adj
 
     plt.figure()
-    df['Adj Close'].plot()
+    df['Adj Close'].plot(color='black')
+    plt.grid()
     plt.savefig('image/{}.png'.format(code))
 
     return
