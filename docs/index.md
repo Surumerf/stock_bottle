@@ -2,7 +2,7 @@
 
 Get stock price data with bottle server.
 
-<img src="https://github.com/Surumerf/stock_bottle/blob/master/docs/example.jpg" width="50%">
+<img src="https://raw.githubusercontent.com/Surumerf/stock_bottle/master/docs/example.jpg">
 
 ## Requirements
 
