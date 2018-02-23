@@ -16,14 +16,18 @@
 <body>
     <form action="/code/" method="post"　class="form-signin">
         <div class="text-center mb-4">
-          <img class="mb-4" src="logo.svg" alt="" width="" height="">
-          <h1 class="h3 mb-3 font-weight-normal">株価取得</h1>
-          <p>１ヶ月分の株価データを取得します．<br>証券コードを入力してください．</p>
+            <img class="mb-4" src="logo.svg" alt="" width="" height="">
+            <h1 class="h3 mb-3 font-weight-normal">株価取得</h1>
+            <p>
+                １ヶ月分の株価データを取得します．<br>
+                証券コードを入力してください．<br>
+                <a href="/industry">業種別銘柄リスト</a>
+            </p>
         </div>
   
         <div class="form-label-group">
-          <input type="text" name="code" id="code" class="form-control" placeholder="証券コード" required autofocus>
-          <label for="code">証券コード</label>
+            <input type="text" name="code" id="code" class="form-control" placeholder="証券コード" required autofocus>
+            <label for="code">証券コード</label>
         </div>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">取得</button>
