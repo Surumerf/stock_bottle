@@ -106,4 +106,8 @@ def returnSvg():
 def returnSvg():
     return static_file('logo2.svg', root='.')
 
+@app.get('/apple-touch-icon.png')
+def returnIcon():
+    return static_file('apple-touch-icon.png', root='.')
+
 app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
