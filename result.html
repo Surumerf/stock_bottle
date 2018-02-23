@@ -26,6 +26,9 @@
                 <li class="nav-item">
                     <a href="{{txtpath}}" class="nav-link text-right">CSVを表示</a>
                 </li>
+                <li class="nav-item">
+                    <a href="https://stocks.finance.yahoo.co.jp/stocks/detail/?code={{code}}.T" class="nav-link text-right">Yahoo!ファイナンスを表示</a>
+                </li>
             </ui>
         </div>
     </nav>
@@ -35,7 +38,7 @@
         <div class="my-3 p-3 bg-white rounded box-shadow">
             <h6 class="border-bottom border-gray pb-2 mb-0 text-center">{{Name}}</h6>
             <div class="border-bottom border-gray text-center">
-                <img src="{{imagepath}}" alt="plot"><br>                
+                <img src="{{imagepath}}" alt="plot" width="100%" style="max-width: max-content;"><br>
             </div>
             <div class="media text-muted pt-3">
                 <p class="media-body pb-3 mb-0 small border-bottom border-gray">
