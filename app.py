@@ -7,14 +7,15 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import os
 import datetime as dt
+from dateutil.relativedelta import relativedelta
 from bottle import Bottle, template, request, static_file
 from pandas import DataFrame
 import jsm
 
 app = Bottle()
 
-def jstock(code):
-    target = jsm.Quotes().get_historical_prices(code)
+def jstock(code, start_date):
+    target = jsm.Quotes().get_historical_prices(code, start_date=start_date)
     
     date = [data.date for data in target]
     open = [data.open for data in target]
@@ -59,8 +60,18 @@ def index():
 
 @app.post('/code/')
 def do_index():
-    code = request.forms.get('code')
-    jstock(code)
+    _code = request.forms.get('code')
+    code = _code.split(' ')[0]
+    if len(_code.split(' ')) == 2:
+        if _code.split(' ')[1] == 'y':
+            start_date = dt.date.today() + relativedelta(years=-1)
+        elif _code.split(' ')[1] == '3y':
+            start_date = dt.date.today() + relativedelta(years=-3)
+        else:
+            start_date = None
+    else:
+        start_date = None
+    jstock(code, start_date)
     search = jsm.Quotes().search(code)
     Name = search[0].name
     financialData = jsm.Quotes().get_finance(code)
