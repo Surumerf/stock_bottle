@@ -31,3 +31,8 @@ $ git push heroku master
 
 # And open your app page.
 ```
+
+## Important Notice
+
+This application is for personal use.  
+Too much access may cause unexpected errors.
