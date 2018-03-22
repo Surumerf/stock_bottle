@@ -18,7 +18,7 @@ $ pip install -r requirements.txt
 ### Local
 
 ```sh
-$ python3 app.py
+$ python3 ./app.py
 
 # And open http://localhost:5000
 ```
